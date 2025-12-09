@@ -1,0 +1,490 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* ==========================================================================
+   Base Variables & Global Styles
+   ========================================================================== */
+
+:root {
+  /* Primary Color - Deep Ocean Blue */
+  --ifm-color-primary: #1A535C;
+  --ifm-color-primary-dark: #154249;
+  --ifm-color-primary-darker: #12383e;
+  --ifm-color-primary-darkest: #0e2d31;
+  --ifm-color-primary-light: #20646c;
+  --ifm-color-primary-lighter: #246e77;
+  --ifm-color-primary-lightest: #2b848f;
+
+  /* Secondary Color - Vibrant Teal */
+  --ifm-color-secondary: #4ECDC4;
+  --ifm-color-secondary-dark: #3fbdb4;
+  --ifm-color-secondary-darker: #38b1a8;
+  --ifm-color-secondary-darkest: #2e918a;
+  --ifm-color-secondary-light: #61d5cd;
+  --ifm-color-secondary-lighter: #70dcd5;
+  --ifm-color-secondary-lightest: #8ae4de;
+
+  /* Accent Color - Warm Coral */
+  --ifm-color-accent: #FF6B6B;
+  --ifm-color-accent-dark: #e65f5f;
+  --ifm-color-accent-lighter: #ff7d7d;
+
+  /* Grayscale & Neutrals */
+  --ifm-color-gray-100: #f8f9fa;
+  --ifm-color-gray-200: #e9ecef;
+  --ifm-color-gray-300: #dee2e6;
+  --ifm-color-gray-400: #ced4da;
+  --ifm-color-gray-500: #adb5bd;
+  --ifm-color-gray-600: #6c757d;
+  --ifm-color-gray-700: #495057;
+  --ifm-color-gray-800: #343a40;
+  --ifm-color-gray-900: #212529;
+  --ifm-color-white: #ffffff;
+  --ifm-color-black: #000000;
+
+  /* Semantic Colors */
+  --ifm-color-success: #28a745;
+  --ifm-color-info: #17a2b8;
+  --ifm-color-warning: #ffc107;
+  --ifm-color-danger: #dc3545;
+
+  /* Font & Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', monospace;
+  --ifm-font-size-base: 17px;
+  --ifm-leading: 1.6;
+  --ifm-h1-font-size: 3.5rem;
+  --ifm-h2-font-size: 2.5rem;
+  --ifm-h3-font-size: 2rem;
+  --ifm-h4-font-size: 1.5rem;
+
+  /* Spacing */
+  --ifm-spacing-xs: 0.25rem;
+  /* 4px */
+  --ifm-spacing-sm: 0.5rem;
+  /* 8px */
+  --ifm-spacing-md: 1rem;
+  /* 16px */
+  --ifm-spacing-lg: 1.5rem;
+  /* 24px */
+  --ifm-spacing-xl: 2.5rem;
+  /* 40px */
+  --ifm-spacing-2xl: 4rem;
+  /* 64px */
+  --ifm-spacing-3xl: 6rem;
+  /* 96px */
+
+  /* Border Radius */
+  --ifm-border-radius: 0.75rem;
+  /* 12px */
+
+  /* Shadows */
+  --ifm-global-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ifm-global-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --ifm-global-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.08);
+  --ifm-global-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --ifm-transition-fast: 0.15s;
+  --ifm-transition-mid: 0.3s;
+  --ifm-transition-slow: 0.5s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  line-height: var(--ifm-leading);
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+}
+
+/* ==========================================================================
+   Dark Mode Overrides
+   ========================================================================== */
+
+[data-theme='dark'] {
+  --ifm-background-color: #0B0E14;
+  /* Deep Tech Blue-Black */
+  --ifm-background-surface-color: #151A23;
+  --ifm-font-color-base: #E2E8F0;
+  --ifm-font-color-secondary: #94A3B8;
+  --ifm-heading-color: #F8FAFC;
+  --ifm-footer-background-color: #0F172A;
+
+  --ifm-color-primary: #4ECDC4;
+  --ifm-color-primary-dark: #3fbdb4;
+  --ifm-color-secondary: #FF6B6B;
+}
+
+/* ==========================================================================
+   Homepage & Hero
+   ========================================================================== */
+
+.hero--primary {
+  background: linear-gradient(135deg, #0F172A 0%, #1A535C 100%);
+  color: white;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background effect for Hero */
+.hero--primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.hero__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero__buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__buttons .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+.button--lg {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+.button--primary {
+  background: var(--ifm-color-secondary);
+  border-color: var(--ifm-color-secondary);
+  color: #0f172a;
+  box-shadow: 0 4px 14px rgba(78, 205, 196, 0.4);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
+  background: #61d5cd;
+  border-color: #61d5cd;
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.button--secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Module Cards (Glassmorphism)
+   ========================================================================== */
+
+.grid-layout-2x2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .grid-layout-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-wrapper {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg,
+      #2563eb,
+      #059669,
+      #ea580c,
+      #7c3aed,
+      #2563eb);
+  background-size: 300% 300%;
+  border-radius: 16px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: gradient-rotate 4s ease infinite;
+}
+
+@keyframes gradient-rotate {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+[data-theme='dark'] .card-wrapper {
+  background: rgba(30, 30, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-wrapper:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow:
+    0 20px 40px -5px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(78, 205, 196, 0.3);
+}
+
+.card-wrapper:hover::before {
+  opacity: 1;
+}
+
+/* Card Gradients for Headers */
+.bg-blue-600 h3 {
+  color: #2563eb;
+}
+
+.bg-green-600 h3 {
+  color: #059669;
+}
+
+.bg-orange-600 h3 {
+  color: #ea580c;
+}
+
+.bg-purple-600 h3 {
+  color: #7c3aed;
+}
+
+[data-theme='dark'] .bg-blue-600 h3 {
+  color: #60a5fa;
+}
+
+[data-theme='dark'] .bg-green-600 h3 {
+  color: #34d399;
+}
+
+[data-theme='dark'] .bg-orange-600 h3 {
+  color: #fb923c;
+}
+
+[data-theme='dark'] .bg-purple-600 h3 {
+  color: #a78bfa;
+}
+
+.card-wrapper h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-wrapper p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .card-wrapper p {
+  color: #94a3b8;
+}
+
+/* Checklist & Flowchart */
+.checklist-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--ifm-global-shadow-sm);
+}
+
+[data-theme='dark'] .checklist-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.checklist-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-card li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.checklist-card li::before {
+  content: '✓';
+  color: var(--ifm-color-success);
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+/* Learning Path Flowchart */
+.flowchart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.flowchart-node {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flowchart-node:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.flowchart-blue {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+}
+
+.flowchart-green {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+}
+
+.flowchart-orange {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  color: white;
+}
+
+.flowchart-purple {
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  color: white;
+}
+
+.flowchart-gold {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: white;
+}
+
+.flowchart-arrow {
+  width: 32px;
+  height: 32px;
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .flowchart-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .flowchart-arrow {
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+  }
+
+  .flowchart-node {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Footer */
+.footer {
+  background: #0F172A;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer__link-item {
+  color: #94a3b8;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-secondary);
+  text-decoration: none;
+}
