@@ -40,7 +40,9 @@ const ChatBot: React.FC = () => {
 
         try {
             // Fetch response from backend
-            const response = await fetch('http://localhost:8001/chat', {
+            // const response = await fetch('http://localhost:8001/chat', {
+            const response = await fetch('https://physical-ai-textbook-vercel-backend-blush.vercel.app/chat', {
+
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query: userMessage }),
